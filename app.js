@@ -16,6 +16,7 @@ function searchByFirstName() {
     // Rather than console logging, you need to append the filteredPeople to a table.
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
     } else {
         return false;
     }
@@ -33,6 +34,7 @@ function searchByLastName() {
     
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
     } else {
         return false;
     }
@@ -49,6 +51,7 @@ function searchByGender() {
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
     } else {
         return false;
     }
@@ -65,6 +68,8 @@ function searchByDob() {
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
+
     } else {
         return false;
     }
@@ -113,6 +118,8 @@ function searchByEyeColor() {
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
+
     } else {
         return false;
     }
@@ -129,6 +136,8 @@ function searchByOccupation() {
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
+
     } else {
         return false;
     }
@@ -152,7 +161,26 @@ people.map(function(el){
 })
 
 
-function masterSearch() {
+function displayTable(arr){
+    arr.map(function(el){
+        document.getElementById("dataUpdated").innerHTML += `<tr>
+        <td>${el.id}</td>
+        <td>${el.firstName}</td>
+        <td>${el.lastName}</td>
+        <td>${el.gender}</td>
+        <td>${el.dob}</td>
+        <td>${el.height}</td>
+        <td>${el.weight}</td>
+        <td>${el.eyeColor}</td>
+        <td>${el.occupation}</td>
+        <td>${el.parents}</td>
+        <td>${el.currentSpouse}</td>
+        </tr>`
+    })
+
+}
+
+function masterSearch(){
     // searchByName();
     searchByFirstName();
     searchByLastName();
