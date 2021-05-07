@@ -5,36 +5,38 @@
     <title>devCodeCamp &middot; Most Wanted</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
-    <form id="nameForm">
-      <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname"><br>
-      <label for="lname">Last name:</label><br>
-      <input type="text" id="lname" name="lname"><br><br>
-      <label for="gender">Gender:</label><br>
-      <input type="text" id="gender" name="gender"><br><br>
-      <label for="dob">DOB:</label><br>
-      <input type="text" id="dob" name="dob"><br><br>
-      <label for="height">Height:</label><br>
-      <input type="text" id="height" name="height"><br><br>
-      <label for="weight">Weight:</label><br>
-      <input type="text" id="weight" name="weight"><br><br>
-      <label for="eyeColor">Eye Color:</label><br>
-      <input type="text" id="eyeColor" name="eyeColor"><br><br>
-      <label for="occupation">Occupation:</label><br>
-      <input type="text" id="occupation" name="occupation"><br><br>
-      <label for="parents">Parents:</label><br>
-      <input type="text" id="parents" name="parents"><br><br>
-      <label for="currentSpouse">Spouse:</label><br>
-      <input type="text" id="currentSpouse" name="currentSpouse"><br><br>
+  <body class="bg-primary">
+    <div class="container bg-info">
+      <h1>Search By:</h1>
+      <form id="nameForm">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+        <label for="gender">Gender:</label><br>
+        <input type="text" id="gender" name="gender"><br>
+        <label for="dob">DOB:</label><br>
+        <input type="text" id="dob" name="dob"><br>
+        <label for="height">Height:</label><br>
+        <input type="text" id="height" name="height"><br>
+        <label for="weight">Weight:</label><br>
+        <input type="text" id="weight" name="weight"><br>
+        <label for="eyeColor">Eye Color:</label><br>
+        <input type="text" id="eyeColor" name="eyeColor"><br>
+        <label for="occupation">Occupation:</label><br>
+        <input type="text" id="occupation" name="occupation"><br>
+        <label for="parents">Parents:</label><br>
+        <input type="text" id="parents" name="parents"><br>
+        <label for="currentSpouse">Spouse:</label><br>
+        <input type="text" id="currentSpouse" name="currentSpouse"><br><br>
+        
+        
+        <input class="btn btn-danger" onclick="masterSearch()" value="Submit"><br><br>
+      </form> 
       
+      <h2><u><a class="text-dark" href="allUSers.html"> See all Users Here!</a></u></h2>
       
-      <input type="button" onclick="masterSearch()" value="Submit">
-    </form> 
-    
-    <a href="allUSers.html"> See all Users Here!</a>
-    
-
+    </div>
 
     <script src="data.js"></script>
     <script src="app.js"></script>
