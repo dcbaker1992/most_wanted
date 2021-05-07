@@ -1,23 +1,40 @@
 'use strict';
 
-function searchByName(){
+function searchByFirstName() {
     // Grabbing the values from our nameForm form and inputs.
     let firstNameInput = document.forms['nameForm']['fname'].value;
-    let lastNameInput = document.forms['nameForm']['lname'].value;
+
 
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
     let filteredPeople = people.filter(function (person) {
-        if(person.firstName === firstNameInput && person.lastName === lastNameInput){
+        if (person.firstName === firstNameInput) {
+            return true;
+        }
+        return false;  
+    });
+
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if (filteredPeople.length > 0) {
+        console.log(filteredPeople);
+    } else {
+        console.log('Sorry, looks like there is no one with that name.');
+    }
+}
+// this is for a test
+function searchByLastName() {
+    let lastNameInput = document.forms['nameForm']['lname'].value;
+
+    let filteredPeople = people.filter(function (person) {
+        if (person.lastName === lastNameInput) {
             return true;
         }
         return false;
     });
     
-    // Rather than console logging, you need to append the filteredPeople to a table.
-    if(filteredPeople.length > 0){
+    if (filteredPeople.length > 0) {
         console.log(filteredPeople);
-    }else{
-        console.log('Sorry, looks like there is no one with that name.');
+    } else {
+        return false;
     }
 }
 
@@ -118,7 +135,16 @@ function searchByOccupation() {
 }
 
 
-function masterSearch(){
+function masterSearch() {
+    // searchByName();
     searchByFirstName();
+    searchByLastName();
+    searchByGender();
+    searchByDob();
+    searchByHeight();
+    searchByWeight();
+    searchByEyeColor();
+    searchByOccupation();
+
 }
 
