@@ -17,7 +17,7 @@ function searchByFirstName() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
     } else {
-        console.log('Sorry, looks like there is no one with that name.');
+        return false;
     }
 }
 // this is for a test
@@ -133,6 +133,23 @@ function searchByOccupation() {
         return false;
     }
 }
+
+
+people.map(function(el){
+    document.getElementById("data").innerHTML += `<tr>
+    <td>${el.id}</td>
+    <td>${el.firstName}</td>
+    <td>${el.lastName}</td>
+    <td>${el.gender}</td>
+    <td>${el.dob}</td>
+    <td>${el.height}</td>
+    <td>${el.weight}</td>
+    <td>${el.eyeColor}</td>
+    <td>${el.occupation}</td>
+    <td>${el.parents}</td>
+    <td>${el.currentSpouse}</td>
+    </tr>`
+})
 
 
 function masterSearch() {
