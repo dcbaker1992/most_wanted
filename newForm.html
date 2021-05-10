@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>devCodeCamp &middot; Most Wanted</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" text="text/css" href="style.css">
+</head>
+
+<body class="bg-primary">
+    <div>
+        <div class="container ">
+            <h1>Search By:</h1>
+            <div class="form">
+                <form id="nameForm" onsubmit="return results();">
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname"><br>
+                    <label for="gender">Gender:</label><br>
+                    <input type="text" id="gender" name="gender"><br>
+                    <label for="dob">DOB:</label><br>
+                    <input type="text" id="dob" name="dob"><br>
+                    <label for="height">Height:</label><br>
+                    <input type="text" id="height" name="height"><br>
+                    <label for="weight">Weight:</label><br>
+                    <input type="text" id="weight" name="weight"><br>
+                    <label for="eyeColor">Eye Color:</label><br>
+                    <input type="text" id="eyeColor" name="eyeColor"><br>
+                    <label for="occupation">Occupation:</label><br>
+                    <input type="text" id="occupation" name="occupation"><br>
+                    <label for="parents">Parents:</label><br>
+                    <input type="text" id="parents" name="parents"><br>
+                    <label for="currentSpouse">Spouse:</label><br>
+                    <input type="text" id="currentSpouse" name="currentSpouse"><br><br>
+
+
+                    <input type="button" class="btn btn-danger" onclick="masterSearch(),displayTable()"
+                        value="Submit"><br><br>
+                </form>
+            </div>
+
+            <table class="table1 table-striped table-dark table-sm" id="mainTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>DOB</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Eye Color</th>
+                        <th>Occupation</th>
+                        <th>Parents</th>
+                        <th>Spouse</th>
+                    </tr>
+                </thead>
+                <tbody id="dataUpdated">
+
+                </tbody>
+
+            </table>
+
+
+
+            <h2><u><a class="bg-success text-dark" href="index.html">Return to Search</a></u></h2>
+        </div>
+
+    </div>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
