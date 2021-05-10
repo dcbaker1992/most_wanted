@@ -1,6 +1,6 @@
 'use strict';
 
-function searchByFirstName() {
+function searchByFirstName(people) {
     // Grabbing the values from our nameForm form and inputs.
     let firstNameInput = document.forms['nameForm']['fname'].value;
 
@@ -23,7 +23,7 @@ function searchByFirstName() {
     }
 }
 // this is for a test
-function searchByLastName() {
+function searchByLastName(people) {
     let lastNameInput = document.forms['nameForm']['lname'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -42,7 +42,7 @@ function searchByLastName() {
     }
 }
 
-function searchByGender() {
+function searchByGender(people) {
     let genderInput = document.forms['nameForm']['gender'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -60,7 +60,7 @@ function searchByGender() {
     }
 }
 
-function searchByDob() {
+function searchByDob(people) {
     let dobInput = document.forms['nameForm']['dob'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -79,7 +79,7 @@ function searchByDob() {
     }
 }
 
-function searchByHeight() {
+function searchByHeight(people) {
     let heightInput = document.forms['nameForm']['height'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -97,7 +97,7 @@ function searchByHeight() {
     }
 }
 
-function searchByWeight() {
+function searchByWeight(people) {
     let weightInput = document.forms['nameForm']['weight'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -115,7 +115,7 @@ function searchByWeight() {
     }
 }
 
-function searchByEyeColor() {
+function searchByEyeColor(people) {
     let eyeColorInput = document.forms['nameForm']['eyeColor'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -134,7 +134,7 @@ function searchByEyeColor() {
     }
 }
 
-function searchByOccupation() {
+function searchByOccupation(people) {
     let occupationInput = document.forms['nameForm']['occupation'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -153,27 +153,66 @@ function searchByOccupation() {
     }
 }
 
+function searchByParents(people){
+    let parentsInput = document.forms['nameForm']['parents'].value;
+    let list = peoplelist;
+    let filteredPeople = list.filter(function (person) {
+        if(person.parents == parentsInput){
+            return true;
+        }
+        return false;
+    });
 
-people.map(function(el){
-    document.getElementById("data").innerHTML += `<tr>
-    <td>${el.id}</td>
-    <td>${el.firstName}</td>
-    <td>${el.lastName}</td>
-    <td>${el.gender}</td>
-    <td>${el.dob}</td>
-    <td>${el.height}</td>
-    <td>${el.weight}</td>
-    <td>${el.eyeColor}</td>
-    <td>${el.occupation}</td>
-    <td>${el.parents}</td>
-    <td>${el.currentSpouse}</td>
-    </tr>`
+    if(filteredPeople.length > 0){
+        console.log(filteredPeople);
+        displayTable(filteredPeople);
+        return filteredPeople;
+    }
+    else{
+    }
+}
+
+function searchByCurrentSpouse(people){
+    let currentSpouseInput = document.forms['nameForm']['currentSpouse'].value;
+    let list = peoplelist;
+    let filteredPeople = list.filter(function (person) {
+        if(person.currentSpouse == currentSpouseInput){
+            return true;
+        }
+        return false;
+    });
+
+    if(filteredPeople.length > 0){
+        console.log(filteredPeople);
+        displayTable(filteredPeople);
+        return filteredPeople;
+    }
+    else{
+    }
+}
+
+function displayTable(array){
+    array.map(function(el){
+        document.getElementById("data").innerHTML += `<tr>
+        <td>${el.id}</td>
+        <td>${el.firstName}</td>
+        <td>${el.lastName}</td>
+        <td>${el.gender}</td>
+        <td>${el.dob}</td>
+        <td>${el.height}</td>
+        <td>${el.weight}</td>
+        <td>${el.eyeColor}</td>
+        <td>${el.occupation}</td>
+        <td>${el.parents}</td>
+        <td>${el.currentSpouse}</td>`
 })
+}
 
 
-function displayTable(arr){
-    arr.map(function(el){
-        document.getElementById("dataUpdated").innerHTML += `<tr>
+function displayUpdatedTable(array){
+    document.getElementById("data").innerHTML = ``;
+    array.map(function(el){
+        document.getElementById("data").innerHTML += `<tr>
         <td>${el.id}</td>
         <td>${el.firstName}</td>
         <td>${el.lastName}</td>
@@ -184,30 +223,11 @@ function displayTable(arr){
         <td>${el.eyeColor}</td>
         <td>${el.occupation}</td>
         <td>${el.parents}</td>
-        <td>${el.currentSpouse}</td>
-        </tr>`
-    })
-
+        <td>${el.currentSpouse}</td>`
+})
 }
 
-function displayTableUpdate(){
-    arr.map(function(el){
-        document.getElementById("dataUpdated").innerHTML += `<tr>
-        <td>${el.id}</td>
-        <td>${el.firstName}</td>
-        <td>${el.lastName}</td>
-        <td>${el.gender}</td>
-        <td>${el.dob}</td>
-        <td>${el.height}</td>
-        <td>${el.weight}</td>
-        <td>${el.eyeColor}</td>
-        <td>${el.occupation}</td>
-        <td>${el.parents}</td>
-        <td>${el.currentSpouse}</td>
-        </tr>`
-    })
 
-}
 
 function masterSearch(){
     let masterFilteredPeople = people;
@@ -242,7 +262,15 @@ function masterSearch(){
     if (document.forms["nameForm"]["currentSpouse"].value != ""){
         masterFilteredPeople= searchByCurrentSpouse(masterFilteredPeople);
     }
+
+    if (document.forms["nameForm"]["parents"].value != ""){
+        masterSearchFilteredPeople = searchByParents(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["currentSpouse"].value != ""){
+        masterSearchFilteredPeople = searchByCurrentSpouse(masterFilteredPeople);
+    }
     
-    displayTableUpdate(masterFilteredPeople);
+    displayUpdatedTable(masterFilteredPeople);
 }
 
+displayTable(people);
