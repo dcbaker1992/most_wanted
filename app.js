@@ -17,6 +17,7 @@ function searchByFirstName() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
     } else {
         return false;
     }
@@ -35,6 +36,7 @@ function searchByLastName() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
     } else {
         return false;
     }
@@ -52,6 +54,7 @@ function searchByGender() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
     } else {
         return false;
     }
@@ -69,6 +72,7 @@ function searchByDob() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
 
     } else {
         return false;
@@ -86,6 +90,8 @@ function searchByHeight() {
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
+        return filteredPeople;
     } else {
         return false;
     }
@@ -102,6 +108,8 @@ function searchByWeight() {
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
+        return filteredPeople;
     } else {
         return false;
     }
@@ -119,6 +127,7 @@ function searchByEyeColor() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
 
     } else {
         return false;
@@ -137,6 +146,7 @@ function searchByOccupation() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
 
     } else {
         return false;
@@ -180,16 +190,59 @@ function displayTable(arr){
 
 }
 
-function masterSearch(){
-    // searchByName();
-    searchByFirstName();
-    searchByLastName();
-    searchByGender();
-    searchByDob();
-    searchByHeight();
-    searchByWeight();
-    searchByEyeColor();
-    searchByOccupation();
+function displayTableUpdate(){
+    arr.map(function(el){
+        document.getElementById("dataUpdated").innerHTML += `<tr>
+        <td>${el.id}</td>
+        <td>${el.firstName}</td>
+        <td>${el.lastName}</td>
+        <td>${el.gender}</td>
+        <td>${el.dob}</td>
+        <td>${el.height}</td>
+        <td>${el.weight}</td>
+        <td>${el.eyeColor}</td>
+        <td>${el.occupation}</td>
+        <td>${el.parents}</td>
+        <td>${el.currentSpouse}</td>
+        </tr>`
+    })
 
+}
+
+function masterSearch(){
+    let masterFilteredPeople = people;
+    if (document.forms["nameForm"]["fname"].value != ""){
+        masterFilteredPeople= searchByFirstName(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["lname"].value != ""){
+        masterFilteredPeople= searchByLastName(masterFilteredPeople);
+        
+    }
+    if (document.forms["nameForm"]["gender"].value != ""){
+        masterFilteredPeople= searchByGender(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["dob"].value != ""){
+        masterFilteredPeople= searchByDob(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["height"].value != ""){
+        masterFilteredPeople= searchByHeight(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["weight"].value != ""){
+        masterFilteredPeople= searchByWeight(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["eyeColor"].value != ""){
+        masterFilteredPeople= searchByEyeColor(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["occupation"].value != ""){
+        masterFilteredPeople= searchByOccupation(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["parents"].value != ""){
+        masterFilteredPeople= searchByParents(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["currentSpouse"].value != ""){
+        masterFilteredPeople= searchByCurrentSpouse(masterFilteredPeople);
+    }
+    
+    displayTableUpdate(masterFilteredPeople);
 }
 
