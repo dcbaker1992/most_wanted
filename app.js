@@ -10,7 +10,7 @@ function searchByFirstName(people) {
         if (person.firstName === firstNameInput) {
             return true;
         }
-        return false;  
+        return false;
     });
 
     // Rather than console logging, you need to append the filteredPeople to a table.
@@ -32,7 +32,7 @@ function searchByLastName(people) {
         }
         return false;
     });
-    
+
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
@@ -153,46 +153,47 @@ function searchByOccupation(people) {
     }
 }
 
-function searchByParents(people){
+function searchByParents(people) {
     let parentsInput = document.forms['nameForm']['parents'].value;
     let list = peoplelist;
     let filteredPeople = list.filter(function (person) {
-        if(person.parents == parentsInput){
+        if (person.parents == parentsInput) {
             return true;
         }
         return false;
     });
 
-    if(filteredPeople.length > 0){
+    if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
         return filteredPeople;
     }
-    else{
+    else {
     }
 }
 
-function searchByCurrentSpouse(people){
+function searchByCurrentSpouse(people) {
     let currentSpouseInput = document.forms['nameForm']['currentSpouse'].value;
     let list = peoplelist;
     let filteredPeople = list.filter(function (person) {
-        if(person.currentSpouse == currentSpouseInput){
+        if (person.currentSpouse == currentSpouseInput) {
             return true;
         }
         return false;
     });
 
-    if(filteredPeople.length > 0){
+    if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
         return filteredPeople;
     }
-    else{
+    else {
     }
 }
 
-function displayTable(array){
-    array.map(function(el){
+
+function displayTable(array) {
+    array.map(function (el) {
         document.getElementById("data").innerHTML += `<tr>
         <td>${el.id}</td>
         <td>${el.firstName}</td>
@@ -204,14 +205,15 @@ function displayTable(array){
         <td>${el.eyeColor}</td>
         <td>${el.occupation}</td>
         <td>${el.parents}</td>
-        <td>${el.currentSpouse}</td>`
-})
+        <td>${el.currentSpouse}</td>
+        <td><input type="button" id="button" onclick="displayDescendantInfo(${el.id})" value="Click Here" ></td>`
+    })
 }
 
 
-function displayUpdatedTable(array){
+function displayUpdatedTable(array) {
     document.getElementById("data").innerHTML = ``;
-    array.map(function(el){
+    array.map(function (el) {
         document.getElementById("data").innerHTML += `<tr>
         <td>${el.id}</td>
         <td>${el.firstName}</td>
@@ -223,53 +225,54 @@ function displayUpdatedTable(array){
         <td>${el.eyeColor}</td>
         <td>${el.occupation}</td>
         <td>${el.parents}</td>
-        <td>${el.currentSpouse}</td>`
-})
+        <td>${el.currentSpouse}</td>
+        <td><input type="button" id="button" onclick="displayDescendantInfo(${el.id})" value="Click Here"></td>`
+    })
 }
 
 
 
-function masterSearch(){
+function masterSearch() {
     let masterFilteredPeople = people;
-    if (document.forms["nameForm"]["fname"].value != ""){
-        masterFilteredPeople= searchByFirstName(masterFilteredPeople);
+    if (document.forms["nameForm"]["fname"].value != "") {
+        masterFilteredPeople = searchByFirstName(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["lname"].value != ""){
-        masterFilteredPeople= searchByLastName(masterFilteredPeople);
-        
+    if (document.forms["nameForm"]["lname"].value != "") {
+        masterFilteredPeople = searchByLastName(masterFilteredPeople);
+
     }
-    if (document.forms["nameForm"]["gender"].value != ""){
-        masterFilteredPeople= searchByGender(masterFilteredPeople);
+    if (document.forms["nameForm"]["gender"].value != "") {
+        masterFilteredPeople = searchByGender(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["dob"].value != ""){
-        masterFilteredPeople= searchByDob(masterFilteredPeople);
+    if (document.forms["nameForm"]["dob"].value != "") {
+        masterFilteredPeople = searchByDob(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["height"].value != ""){
-        masterFilteredPeople= searchByHeight(masterFilteredPeople);
+    if (document.forms["nameForm"]["height"].value != "") {
+        masterFilteredPeople = searchByHeight(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["weight"].value != ""){
-        masterFilteredPeople= searchByWeight(masterFilteredPeople);
+    if (document.forms["nameForm"]["weight"].value != "") {
+        masterFilteredPeople = searchByWeight(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["eyeColor"].value != ""){
-        masterFilteredPeople= searchByEyeColor(masterFilteredPeople);
+    if (document.forms["nameForm"]["eyeColor"].value != "") {
+        masterFilteredPeople = searchByEyeColor(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["occupation"].value != ""){
-        masterFilteredPeople= searchByOccupation(masterFilteredPeople);
+    if (document.forms["nameForm"]["occupation"].value != "") {
+        masterFilteredPeople = searchByOccupation(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["parents"].value != ""){
-        masterFilteredPeople= searchByParents(masterFilteredPeople);
+    if (document.forms["nameForm"]["parents"].value != "") {
+        masterFilteredPeople = searchByParents(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["currentSpouse"].value != ""){
-        masterFilteredPeople= searchByCurrentSpouse(masterFilteredPeople);
+    if (document.forms["nameForm"]["currentSpouse"].value != "") {
+        masterFilteredPeople = searchByCurrentSpouse(masterFilteredPeople);
     }
 
-    if (document.forms["nameForm"]["parents"].value != ""){
+    if (document.forms["nameForm"]["parents"].value != "") {
         masterSearchFilteredPeople = searchByParents(masterFilteredPeople);
     }
-    if (document.forms["nameForm"]["currentSpouse"].value != ""){
+    if (document.forms["nameForm"]["currentSpouse"].value != "") {
         masterSearchFilteredPeople = searchByCurrentSpouse(masterFilteredPeople);
     }
-    
+
     displayUpdatedTable(masterFilteredPeople);
 }
 
