@@ -125,23 +125,23 @@ function searchByEyeColor() {
     }
 }
 
-// function searchByOccupation() {
-//     let occupationInput = document.forms['nameForm']['occupation'].value;
+function searchByOccupation() {
+    let occupationInput = document.forms['nameForm']['occupation'].value;
 
-//     let filteredPeople = people.filter(function (person) {
-//         if (person.occupation === occupationInput) {
-//             return true;
-//         }
-//         return false;
-//     });
-//     if (filteredPeople.length > 0) {
-//         console.log(filteredPeople);
-//         displayTable(filteredPeople);
+    let filteredPeople = people.filter(function (person) {
+        if (person.occupation === occupationInput) {
+            return true;
+        }
+        return false;
+    });
+    if (filteredPeople.length > 0) {
+        console.log(filteredPeople);
+        displayTable(filteredPeople);
 
-//     } else {
-//         return false;
-//     }
-// }
+    } else {
+        return false;
+    }
+}
 
 
 people.map(function(el){
