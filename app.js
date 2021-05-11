@@ -175,7 +175,6 @@ function searchByOccupation(people) {
 
 function searchByParents(people) {
     let parentsInput = document.forms['nameForm']['parents'].value;
-    let list = peoplelist;
     let filteredPeople = list.filter(function (person) {
         if (person.parents == parentsInput) {
             return true;
@@ -194,7 +193,6 @@ function searchByParents(people) {
 
 function searchByCurrentSpouse(people) {
     let currentSpouseInput = document.forms['nameForm']['currentSpouse'].value;
-    let list = peoplelist;
     let filteredPeople = list.filter(function (person) {
         if (person.currentSpouse == currentSpouseInput) {
             return true;
@@ -223,7 +221,7 @@ function displayDescendantInfo(idNumber) {
         }
     })
     document.getElementById("data").innerHTML =
-`<tr>
+        `<tr>
     <td>${selectionInfo[0].id}</td>
     <td>${selectionInfo[0].firstName}</td>
     <td>${selectionInfo[0].lastName}</td>
@@ -262,7 +260,7 @@ function findDescendants(isParent, people, arrayToPush) {
 }
 
 function displayDescendantTable(object) {
-    document.getElementById("data").innerHTML = `<tr><strong>Descendant Info</strong></tr>`;
+    document.getElementById("data").innerHTML ="";
     object.map(function (el) {
         document.getElementById("data").innerHTML += `<tr>
         <td>${el.id}</td>
@@ -276,7 +274,7 @@ function displayDescendantTable(object) {
         <td>${el.occupation}</td>
         <td>${el.parents}</td>
         <td>${el.currentSpouse}</td>`
-    })
+    });
 }
 
 
@@ -294,8 +292,9 @@ function displayTable(array) {
         <td>${el.occupation}</td>
         <td>${el.parents}</td>
         <td>${el.currentSpouse}</td>
-        <td><input type="button" id="button" onclick="displayDescendantInfo(${el.id})" value="Click Here" ></td>`
-    })
+        <td><input type="button" id="button" onclick="displayDescendantInfo(${el.id})" value="Click Here" ></td>
+        <td><input type="button" id="button" onclick="getImmediateFamily(${el.id})" value="Click Here" ></td>`
+    });
 }
 
 
@@ -317,8 +316,6 @@ function displayUpdatedTable(array) {
         <td><input type="button" id="button" onclick="displayDescendantInfo(${el.id})" value="Click Here"></td>`
     })
 }
-
-
 
 function masterSearch() {
     let masterFilteredPeople = people;
