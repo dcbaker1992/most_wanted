@@ -22,7 +22,7 @@ function searchByFirstName(people) {
         return false;
     }
 }
-// this is for a test
+
 function searchByLastName(people) {
     let lastNameInput = document.forms['nameForm']['lname'].value;
 
@@ -79,11 +79,30 @@ function searchByDob(people) {
     }
 }
 
+// function searchByHeight(people){
+//     let heightInput = document.forms['nameForm']['height'].value;
+//     let filteredPeople = list.filter(function (person) {
+//         if(person.height == heightInput){
+//             return true;
+//         }
+//         return false;
+//     });
+
+//     if(filteredPeople.length > 0){
+//         console.log(filteredPeople);
+//         displayTable(filteredPeople);
+//         return filteredPeople;
+//     }
+//     else{
+//         return false;
+//     }
+// }
+
 function searchByHeight(people) {
     let heightInput = document.forms['nameForm']['height'].value;
 
     let filteredPeople = people.filter(function (person) {
-        if (person.height === heightInput) {
+        if (person.height == heightInput) {
             return true;
         }
         return false;
@@ -101,7 +120,7 @@ function searchByWeight(people) {
     let weightInput = document.forms['nameForm']['weight'].value;
 
     let filteredPeople = people.filter(function (person) {
-        if (person.weight == parseInt(weightInput)) {
+        if (person.weight == weightInput) {
             return true;
         }
         return false;
