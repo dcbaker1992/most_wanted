@@ -77,31 +77,37 @@ function searchByDob() {
 
 function searchByHeight() {
     let heightInput = document.forms['nameForm']['height'].value;
+    let list = peoplelist;
 
     let filteredPeople = people.filter(function (person) {
-        if (person.height === heightInput) {
+        if (person.height == (heightInput)) {
             return true;
         }
         return false;
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
+        return filteredPeople;
+    
     } else {
-        return false;
+        
     }
 }
 
 function searchByWeight() {
-    let weightInput = document.forms['nameForm']['weight'].value;
+    let weightInput = document.forms['nameForm']['weight'].value; 
+    let list = peoplelist;
 
     let filteredPeople = people.filter(function (person) {
-        if (person.weight == parseInt(weightInput)) {
+        if (person.weight == weightInput) {
             return true;
         }
         return false;
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
+        displayTable(filteredPeople);
     } else {
         return false;
     }
@@ -114,14 +120,14 @@ function searchByEyeColor() {
         if (person.eyeColor === eyeColorInput) {
             return true;
         }
-        return false;
+        // return false;
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
 
     } else {
-        return false;
+        // return false;
     }
 }
 
@@ -145,7 +151,7 @@ function searchByOccupation() {
 
 
 people.map(function(el){
-    document.getElementById("data").innerHTML += `<tr>
+    document.getElementById("data").innerHTML += <tr>
     <td>${el.id}</td>
     <td>${el.firstName}</td>
     <td>${el.lastName}</td>
@@ -157,7 +163,7 @@ people.map(function(el){
     <td>${el.occupation}</td>
     <td>${el.parents}</td>
     <td>${el.currentSpouse}</td>
-    </tr>`
+    </tr>
 })
 
 
