@@ -222,23 +222,8 @@ function displayDescendantInfo(idNumber) {
             return false;
         }
     })
-    document.getElementById("nameForm").innerHTML =
-        `<table><thead>
-    <tr><strong>Selection's Info</strong></tr>
-    <tr>
-        <th>I.D. #</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Gender</th>
-        <th>D.O.B.</th>
-        <th>Height</th>
-        <th>Weight</th>
-        <th>Eye Color</th>
-        <th>Occupation</th>
-        <th>Parents</th>
-        <th>Current Spouse</th>
-    </tr>
-    </thead><tr>
+    document.getElementById("data").innerHTML =
+`<tr>
     <td>${selectionInfo[0].id}</td>
     <td>${selectionInfo[0].firstName}</td>
     <td>${selectionInfo[0].lastName}</td>
