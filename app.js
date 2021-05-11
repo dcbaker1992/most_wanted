@@ -1,6 +1,6 @@
 'use strict';
 
-function searchByFirstName() {
+function searchByFirstName(people) {
     // Grabbing the values from our nameForm form and inputs.
     let firstNameInput = document.forms['nameForm']['fname'].value;
 
@@ -10,19 +10,20 @@ function searchByFirstName() {
         if (person.firstName === firstNameInput) {
             return true;
         }
-        return false;  
+        return false;
     });
 
     // Rather than console logging, you need to append the filteredPeople to a table.
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
     } else {
         return false;
     }
 }
 // this is for a test
-function searchByLastName() {
+function searchByLastName(people) {
     let lastNameInput = document.forms['nameForm']['lname'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -31,16 +32,17 @@ function searchByLastName() {
         }
         return false;
     });
-    
+
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
     } else {
         return false;
     }
 }
 
-function searchByGender() {
+function searchByGender(people) {
     let genderInput = document.forms['nameForm']['gender'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -52,12 +54,13 @@ function searchByGender() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
     } else {
         return false;
     }
 }
 
-function searchByDob() {
+function searchByDob(people) {
     let dobInput = document.forms['nameForm']['dob'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -69,13 +72,14 @@ function searchByDob() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
 
     } else {
         return false;
     }
 }
 
-function searchByHeight() {
+function searchByHeight(people) {
     let heightInput = document.forms['nameForm']['height'].value;
     let list = peoplelist;
 
@@ -89,15 +93,23 @@ function searchByHeight() {
         console.log(filteredPeople);
         displayTable(filteredPeople);
         return filteredPeople;
+<<<<<<< HEAD
     
+=======
+>>>>>>> a38ece646f763ff9a5520d188d52eda163123ee7
     } else {
         
     }
 }
 
+<<<<<<< HEAD
 function searchByWeight() {
     let weightInput = document.forms['nameForm']['weight'].value; 
     let list = peoplelist;
+=======
+function searchByWeight(people) {
+    let weightInput = document.forms['nameForm']['weight'].value;
+>>>>>>> a38ece646f763ff9a5520d188d52eda163123ee7
 
     let filteredPeople = people.filter(function (person) {
         if (person.weight == weightInput) {
@@ -108,12 +120,16 @@ function searchByWeight() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+<<<<<<< HEAD
+=======
+        return filteredPeople;
+>>>>>>> a38ece646f763ff9a5520d188d52eda163123ee7
     } else {
         return false;
     }
 }
 
-function searchByEyeColor() {
+function searchByEyeColor(people) {
     let eyeColorInput = document.forms['nameForm']['eyeColor'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -125,13 +141,14 @@ function searchByEyeColor() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
 
     } else {
         // return false;
     }
 }
 
-function searchByOccupation() {
+function searchByOccupation(people) {
     let occupationInput = document.forms['nameForm']['occupation'].value;
 
     let filteredPeople = people.filter(function (person) {
@@ -143,13 +160,33 @@ function searchByOccupation() {
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
         displayTable(filteredPeople);
+        return filteredPeople;
 
     } else {
         return false;
     }
 }
 
+function searchByParents(people) {
+    let parentsInput = document.forms['nameForm']['parents'].value;
+    let list = peoplelist;
+    let filteredPeople = list.filter(function (person) {
+        if (person.parents == parentsInput) {
+            return true;
+        }
+        return false;
+    });
 
+    if (filteredPeople.length > 0) {
+        console.log(filteredPeople);
+        displayTable(filteredPeople);
+        return filteredPeople;
+    }
+    else {
+    }
+}
+
+<<<<<<< HEAD
 people.map(function(el){
     document.getElementById("data").innerHTML += <tr>
     <td>${el.id}</td>
@@ -170,6 +207,31 @@ people.map(function(el){
 function displayTable(arr){
     arr.map(function(el){
         document.getElementById("dataUpdated").innerHTML += `<tr>
+=======
+function searchByCurrentSpouse(people) {
+    let currentSpouseInput = document.forms['nameForm']['currentSpouse'].value;
+    let list = peoplelist;
+    let filteredPeople = list.filter(function (person) {
+        if (person.currentSpouse == currentSpouseInput) {
+            return true;
+        }
+        return false;
+    });
+
+    if (filteredPeople.length > 0) {
+        console.log(filteredPeople);
+        displayTable(filteredPeople);
+        return filteredPeople;
+    }
+    else {
+    }
+}
+
+
+function displayTable(array) {
+    array.map(function (el) {
+        document.getElementById("data").innerHTML += `<tr>
+>>>>>>> a38ece646f763ff9a5520d188d52eda163123ee7
         <td>${el.id}</td>
         <td>${el.firstName}</td>
         <td>${el.lastName}</td>
@@ -181,21 +243,74 @@ function displayTable(arr){
         <td>${el.occupation}</td>
         <td>${el.parents}</td>
         <td>${el.currentSpouse}</td>
-        </tr>`
+        <td><input type="button" id="button" onclick="displayDescendantInfo(${el.id})" value="Click Here" ></td>`
     })
-
 }
 
-function masterSearch(){
-    // searchByName();
-    searchByFirstName();
-    searchByLastName();
-    searchByGender();
-    searchByDob();
-    searchByHeight();
-    searchByWeight();
-    searchByEyeColor();
-    searchByOccupation();
 
+function displayUpdatedTable(array) {
+    document.getElementById("data").innerHTML = ``;
+    array.map(function (el) {
+        document.getElementById("data").innerHTML += `<tr>
+        <td>${el.id}</td>
+        <td>${el.firstName}</td>
+        <td>${el.lastName}</td>
+        <td>${el.gender}</td>
+        <td>${el.dob}</td>
+        <td>${el.height}</td>
+        <td>${el.weight}</td>
+        <td>${el.eyeColor}</td>
+        <td>${el.occupation}</td>
+        <td>${el.parents}</td>
+        <td>${el.currentSpouse}</td>
+        <td><input type="button" id="button" onclick="displayDescendantInfo(${el.id})" value="Click Here"></td>`
+    })
 }
 
+
+
+function masterSearch() {
+    let masterFilteredPeople = people;
+    if (document.forms["nameForm"]["fname"].value != "") {
+        masterFilteredPeople = searchByFirstName(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["lname"].value != "") {
+        masterFilteredPeople = searchByLastName(masterFilteredPeople);
+
+    }
+    if (document.forms["nameForm"]["gender"].value != "") {
+        masterFilteredPeople = searchByGender(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["dob"].value != "") {
+        masterFilteredPeople = searchByDob(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["height"].value != "") {
+        masterFilteredPeople = searchByHeight(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["weight"].value != "") {
+        masterFilteredPeople = searchByWeight(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["eyeColor"].value != "") {
+        masterFilteredPeople = searchByEyeColor(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["occupation"].value != "") {
+        masterFilteredPeople = searchByOccupation(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["parents"].value != "") {
+        masterFilteredPeople = searchByParents(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["currentSpouse"].value != "") {
+        masterFilteredPeople = searchByCurrentSpouse(masterFilteredPeople);
+    }
+
+    if (document.forms["nameForm"]["parents"].value != "") {
+        masterSearchFilteredPeople = searchByParents(masterFilteredPeople);
+    }
+    if (document.forms["nameForm"]["currentSpouse"].value != "") {
+        masterSearchFilteredPeople = searchByCurrentSpouse(masterFilteredPeople);
+    }
+
+    displayUpdatedTable(masterFilteredPeople);
+}
+
+displayTable(people);

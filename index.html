@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="utf-8">
     <title>devCodeCamp &middot; Most Wanted</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    
   </head>
+=======
+>>>>>>> a38ece646f763ff9a5520d188d52eda163123ee7
 
-  <body class="bg-primary">
-    <div>
-      <div class="container ">
-        <h1>Search By:</h1>
-        <div class="form">
+<head>
+  <meta charset="utf-8">
+  <title>devCodeCamp &middot; Most Wanted</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" text="text/css" href="style.css">
+</head>
+
+<body class="bg-primary">
+  <div>
+    <div class="container ">
+      <h1>Search By:</h1>
+      <div class="form">
         <form id="nameForm" onsubmit="return results();">
           <label for="fname">First name:</label><br>
           <input type="text" id="fname" name="fname"><br>
@@ -33,6 +44,7 @@
           <input type="text" id="parents" name="parents"><br>
           <label for="currentSpouse">Spouse:</label><br>
           <input type="text" id="currentSpouse" name="currentSpouse"><br><br>
+<<<<<<< HEAD
           
           
           <input type="button" class="btn btn-danger" onclick="masterSearch(),displayTable()" value="Submit">
@@ -56,18 +68,42 @@
                 </tr>
             </thead>
             <tbody id="dataUpdated">
+=======
+>>>>>>> a38ece646f763ff9a5520d188d52eda163123ee7
 
-            </tbody>
 
-        </table>
-        
-        
-        <h2><u><a class="text-dark"  href="allUSers.html"> See all Users Here!</a></u></h2>
-        <h2><u><a class="text-dark"  href="newForm.html"> Search By more than one criteria</a></u></h2>
+          <input type="button" class="btn btn-danger" onclick="masterSearch()" value="Submit"><br><br>
+        </form>
       </div>
-      
+
+      <table class="table1 table-striped table-dark table-sm mb-5" id="mainTable">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Eye Color</th>
+            <th>Occupation</th>
+            <th>Parents</th>
+            <th>Spouse</th>
+            <th>Decendants</th>
+            <th>Immediate Family</th>
+          </tr>
+        </thead>
+        <tbody id="data"></tbody>
+
+
+
+      </table>
     </div>
-    <script src="data.js"></script>
-    <script src="app.js"></script>
-  </body>
+    
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+
 </html>
