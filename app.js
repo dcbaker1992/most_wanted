@@ -103,11 +103,7 @@ function searchByHeight(people) {
     let list = peopleList;
 
     let filteredPeople = people.filter(function (person) {
-<<<<<<< HEAD
         if (person.height == heightInput) {
-=======
-        if (person.height == (heightInput)) {
->>>>>>> 2a04c60e09a75694f2cef360bfad78aed58f2165
             return true;
         }
         return false;
