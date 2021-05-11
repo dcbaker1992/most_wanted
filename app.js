@@ -100,9 +100,14 @@ function searchByDob(people) {
 
 function searchByHeight(people) {
     let heightInput = document.forms['nameForm']['height'].value;
+    let list = peopleList;
 
     let filteredPeople = people.filter(function (person) {
+<<<<<<< HEAD
         if (person.height == heightInput) {
+=======
+        if (person.height == (heightInput)) {
+>>>>>>> 2a04c60e09a75694f2cef360bfad78aed58f2165
             return true;
         }
         return false;
@@ -112,7 +117,7 @@ function searchByHeight(people) {
         displayTable(filteredPeople);
         return filteredPeople;
     } else {
-        return false;
+        
     }
 }
 
@@ -141,7 +146,7 @@ function searchByEyeColor(people) {
         if (person.eyeColor === eyeColorInput) {
             return true;
         }
-        return false;
+        // return false;
     });
     if (filteredPeople.length > 0) {
         console.log(filteredPeople);
@@ -149,7 +154,7 @@ function searchByEyeColor(people) {
         return filteredPeople;
 
     } else {
-        return false;
+        // return false;
     }
 }
 
