@@ -212,6 +212,89 @@ function searchByCurrentSpouse(people) {
 }
 
 
+
+function displayDescendantInfo(idNumber) {
+    let selectionInfo = people.filter(function (person) {
+        if (person.id == idNumber) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    })
+    document.getElementById("nameForm").innerHTML =
+        `<table><thead>
+    <tr><strong>Selection's Info</strong></tr>
+    <tr>
+        <th>I.D. #</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>D.O.B.</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Eye Color</th>
+        <th>Occupation</th>
+        <th>Parents</th>
+        <th>Current Spouse</th>
+    </tr>
+    </thead><tr>
+    <td>${selectionInfo[0].id}</td>
+    <td>${selectionInfo[0].firstName}</td>
+    <td>${selectionInfo[0].lastName}</td>
+    <td>${selectionInfo[0].gender}</td>
+    <td>${selectionInfo[0].dob}</td>
+    <td>${selectionInfo[0].height}</td>
+    <td>${selectionInfo[0].weight}</td>
+    <td>${selectionInfo[0].eyeColor}</td>
+    <td>${selectionInfo[0].occupation}</td>
+    <td>${selectionInfo[0].parents}</td>
+    <td>${selectionInfo[0].currentSpouse}</td></tr></table>`;
+    let filteredPeople = [];
+
+    findDescendants(selectionInfo[0], people, filteredPeople)
+
+    if (filteredPeople.length > 0) {
+        console.log(filteredPeople);
+        document.getElementById("data").innerHTML = "";
+        displayDescendantTable(filteredPeople);
+    } else {
+        document.getElementById("data").innerHTML = "";
+        alert('Sorry, looks like there are no descendants.')
+    }
+}
+
+function findDescendants(isParent, people, arrayToPush) {
+    let kids = people.filter(function (person) {
+        for (let i = 0; i < person.parents.length; i++) {
+            if (person.parents[i] == isParent.id) {
+                arrayToPush.push(person);
+                findDescendants(person, people, arrayToPush);
+                return true;
+            }
+        }
+    })
+}
+
+function displayDescendantTable(object) {
+    document.getElementById("data").innerHTML = `<tr><strong>Descendant Info</strong></tr>`;
+    object.map(function (el) {
+        document.getElementById("data").innerHTML += `<tr>
+        <td>${el.id}</td>
+        <td>${el.firstName}</td>
+        <td>${el.lastName}</td>
+        <td>${el.gender}</td>
+        <td>${el.dob}</td>
+        <td>${el.height}</td>
+        <td>${el.weight}</td>
+        <td>${el.eyeColor}</td>
+        <td>${el.occupation}</td>
+        <td>${el.parents}</td>
+        <td>${el.currentSpouse}</td>`
+    })
+}
+
+
 function displayTable(array) {
     array.map(function (el) {
         document.getElementById("data").innerHTML += `<tr>
