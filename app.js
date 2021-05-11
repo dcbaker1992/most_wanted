@@ -100,7 +100,6 @@ function searchByDob(people) {
 
 function searchByHeight(people) {
     let heightInput = document.forms['nameForm']['height'].value;
-    let list = peopleList;
 
     let filteredPeople = people.filter(function (person) {
         if (person.height == heightInput) {
@@ -113,9 +112,10 @@ function searchByHeight(people) {
         displayTable(filteredPeople);
         return filteredPeople;
     } else {
-        
+        return false;
     }
 }
+
 
 function searchByWeight(people) {
     let weightInput = document.forms['nameForm']['weight'].value;
